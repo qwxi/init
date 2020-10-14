@@ -7,7 +7,7 @@ cat /usr/lib/systemd/system/rc-local.service
 Description=/etc/rc.d/rc.local Compatibility
 ConditionFileIsExecutable=/etc/rc.d/rc.local
 Requires=network-online.target  #新加
-After=network-online.target  #修改
+After=network-online.target  #修改 网络连通之后再执行此服务
 
 [Service]
 Type=forking
@@ -22,7 +22,9 @@ systemctl daemon-reload
 ```
 
 ### 增加执行权限
+```
 chmod +x /etc/rc.d/rc.local 
+```
 
 ### 开机自启动脚本内容
 ```
